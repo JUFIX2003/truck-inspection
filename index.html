@@ -1,56 +1,656 @@
-<!DOCTYPE html>
-<html lang="en">
+.<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Truck Inspection Form</title>
+    <title>Weekly Drivers Schedule 2025</title>
+    <style>
+        <style>
+    /* Существующий стиль */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 12px;
+        text-align: center;
+    }
+
+    /* Новый адаптивный стиль */
+    @media (max-width: 768px) {
+        body {
+            font-size: 14px; /* Уменьшить размер текста для мобильных устройств */
+        }
+
+        .container {
+            padding: 10px; /* Уменьшить отступы контейнера */
+        }
+
+        table {
+            font-size: 12px; /* Уменьшить размер текста в таблице */
+        }
+
+        th, td {
+            padding: 8px; /* Уменьшить отступы в ячейках таблицы */
+        }
+
+        .table-container {
+            overflow-x: auto; /* Позволить горизонтальную прокрутку на узких экранах */
+        }
+
+        .modal {
+            width: 90%; /* Увеличить доступную ширину меню Swap Driver */
+            max-width: none; /* Убрать ограничение ширины */
+            padding: 15px; /* Уменьшить отступы */
+        }
+
+        select, button {
+            width: 100%; /* Полная ширина элементов формы */
+            font-size: 14px; /* Уменьшить размер текста в формах */
+        }
+
+        h1 {
+            font-size: 20px; /* Уменьшить размер заголовка */
+        }
+    }
+        td:nth-child(2), td:nth-child(3) {
+    font-weight: 700; /* Ещё более жирный шрифт */
+    color: #000; /* Сделать текст насыщенным чёрным */
+}I
+        td:first-child {
+    font-weight: 600; /* Немного жирнее */
+    color: #333; /* Темнее цвет */
+}
+        tr:nth-child(even) {
+    background-color: #f2f2f2; /* Светло-серый цвет для четных строк */
+}
+
+tr:nth-child(odd) {
+    background-color: #e6e6e6; /* Серый цвет для нечетных строк */
+}
+        table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #add8e6;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8p x;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #add8e6I;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        select, button {
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 16px;
+            border: 1px so lid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .modal.active {
+            display: block;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+        }
+        .overlay.active {
+            display: block;
+        }
+        .
+    /* Существующий стиль */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 12px;
+        text-align: center;
+    }
+
+    /* Новый адаптивный стиль */
+    @media (max-width: 768px) {
+        body {
+            font-size: 14px; /* Уменьшить размер текста для мобильных устройств */
+        }
+
+        .container {
+            padding: 10px; /* Уменьшить отступы контейнера */
+        }
+
+        table {
+            font-size: 12px; /* Уменьшить размер текста в таблице */
+        }
+
+        th, td {
+            padding: 8px; /* Уменьшить отступы в ячейках таблицы */
+        }
+
+        .table-container {
+            overflow-x: auto; /* Позволить горизонтальную прокрутку на узких экранах */
+        }
+
+        .modal {
+            width: 90%; /* Увеличить доступную ширину меню Swap Driver */
+            max-width: none; /* Убрать ограничение ширины */
+            padding: 15px; /* Уменьшить отступы */
+        }
+
+        select, button {
+            width: 100%; /* Полная ширина элементов формы */
+            font-size: 14px; /* Уменьшить размер текста в формах */
+        }
+
+        h1 {
+            font-size: 20px; /* Уменьшить размер заголовка */
+        }
+    }
+</style>
+    </style>
+    <script>
+        
+      function toggleShiftCounter() {
+    const modal = document.getElementById('shiftCounterModal');
+    const overlay = document.getElementById('shiftCounterOverlay');
+    modal.classList.toggle('active');
+    overlay.classList.toggle('active');
+    if (modal.classList.contains('active')) {
+        updateShiftCounter();
+    }
+}
+
+function updateShiftCounter() {
+    // Получить строки только из основной таблицы
+    const rows = document.querySelectorAll("#mainTable tbody tr");
+    const nameCounts = {};
+
+    // Подсчитать количество повторений каждого имени
+    rows.forEach(row => {
+        const driver1 = row.cells[1]?.textContent.trim();
+        const driver2 = row.cells[2]?.textContent.trim();
+
+        if (driver1) nameCounts[driver1] = (nameCounts[driver1] || 0) + 1;
+        if (driver2) nameCounts[driver2] = (nameCounts[driver2] || 0) + 1;
+    });
+
+    // Очистить таблицу перед добавлением новых данных
+    const tableBody = document.getElementById('shiftCounterTableBody');
+    tableBody.innerHTML = ''; // Полное очищение содержимого таблицы
+
+    // Заполнить таблицу новыми данными
+    Object.keys(nameCounts).forEach(name => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${name}</td><td>${nameCounts[name]}</td>`;
+        tableBody.appendChild(row);
+    });
+}           document.addEventListener('DOMContentLoaded', function() {
+            const dateInput = document.getElementById("dateInput");
+            const driver1Input = document.getElementById("driver1Input");
+            const driver2Input = document.getElementById("driver2Input");
+
+            // Populate dates
+            const dates = [
+                "2025-01-03", "2025-01-10", "2025-01-17", "2025-01-24", "2025-01-31",
+                "2025-02-07", "2025-02-14", "2025-02-21", "2025-02-28", "2025-03-07",
+                "2025-03-14", "2025-03-21", "2025-03-28", "2025-04-04", "2025-04-11",
+                "2025-04-18", "2025-04-25", "2025-05-02", "2025-05-09", "2025-05-16",
+                "2025-05-23", "2025-05-30", "2025-06-06", "2025-06-13", "2025-06-20",
+                "2025-06-27", "2025-07-04", "2025-07-11", "2025-07-18", "2025-07-25",
+                "2025-08-01", "2025-08-08", "2025-08-15", "2025-08-22", "2025-08-29",
+                "2025-09-05", "2025-09-12", "2025-09-19", "2025-09-26", "2025-10-03",
+                "2025-10-10", "2025-10-17", "2025-10-24", "2025-10-31", "2025-11-07",
+                "2025-11-14", "2025-11-21", "2025-11-28", "2025-12-05", "2025-12-12",
+                "2025-12-19", "2025-12-26"
+            ];
+
+            dates.forEach(date => {
+                const option = document.createElement("option");
+                option.value = date;
+                option.textContent = date;
+                dateInput.appendChild(option);
+            });
+
+            // Populate driver names
+            const drivers = ["יובל", "איגור", "דני", "סלבה", "נמרוד", "איליה"];
+
+            drivers.forEach(driver => {
+                const option1 = document.createElement("option");
+                option1.value = driver;
+                option1.textContent = driver;
+                driver1Input.appendChild(option1);
+
+                const option2 = document.createElement("option");
+                option2.value = driver;
+                option2.textContent = driver;
+                driver2Input.appendChild(option2);
+            });
+        });
+
+        function toggleModal() {
+            const modal = document.getElementById('swapModal');
+            const overlay = document.getElementById('overlay');
+            modal.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        function swapDrivers(date, driver1, driver2) {
+            const rows = document.querySelectorAll("tbody tr");
+            let startSwapping = false;
+
+            rows.forEach(row => {
+                const cells = row.querySelectorAll("td");
+                const rowDate = cells[0].textContent;
+
+                if (rowDate === date) {
+                    startSwapping = true;
+                }
+
+                if (startSwapping) {
+                    cells.forEach(cell => {
+                        if (cell.textContent === driver1) {
+                            cell.textContent = driver2;
+                        } else if (cell.textContent === driver2) {
+                            cell.textContent = driver1;
+                        }
+                    });
+                }
+            });
+
+            toggleModal();
+        }
+
+        function handleSwap() {
+    const date = document.getElementById("dateInput").value;
+    const driver1 = document.getElementById("driver1Input").value;
+    const driver2 = document.getElementById("driver2Input").value;
+
+    if (!date || !driver1 || !driver2) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    // Подтверждение действия
+    const isConfirmed = confirm("Are you sure you want to make these changes?");
+    if (isConfirmed) {
+        swapDrivers(date, driver1, driver2); // Выполняем замену только если подтверждено
+        alert("The changes have been successfully made!");
+    } else {
+        alert("Changes were not applied.");
+    }
+}
+
+        function exportToExcel() {
+            const table = document.querySelector("table");
+            const rows = Array.from(table.rows);
+            let csvContent = "data:text/csv;charset=utf-8,";
+
+            rows.forEach(row => {
+                const cols = Array.from(row.cells).map(cell => cell.textContent);
+                csvContent += cols.join(",") + "\n";
+            });
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "drivers_schedule_2025.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function printTable() {
+            const originalContents = document.body.innerHTML;
+            const printContents = document.querySelector(".container").innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+            document.body.innerHTML = originalContents;
+        }
+    </script>
 </head>
 <body>
-    <h1>Месячная проверка грузовиков</h1>
-    <p>Пожалуйста, заполните форму ниже:</p>
+    <div class="container">
+        <h1>Weekly Drivers Schedule 2025</h1>
 
-    <form id="truckCheckForm">
-        <label for="driverName">Имя водителя:</label>
-        <input type="text" id="driverName" name="driver_name" required><br><br>
+        <button onclick="toggleModal()">Open Driver Swap</button>
+        <button onclick="exportToExcel()">Export to Excel</button>
+        <button onclick="printTable()">Print</button>
+        <button onclick="toggleShiftCounter()">Shift Counter</button>
+<div class="table-container">
+        <table id="mainTable">
+          ' </div>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Driver 1</th>
+                    <th>Driver 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>2025-01-03</td><td>יובל</td><td>איגור</td></tr>
+                <tr><td>2025-01-10</td><td>דני</td><td>סלבה</td></tr>
+                <tr><td>2025-01-17</td><td>נמרוד</td><td>איליה</td></tr>
+                <tr><td>2025-01-24</td><td>יובל</td><td>איגור</td></tr>
+                <tr><td>2025-01-31</td><td>דני</td><td>סלבה</td></tr>
+                <tr><td>2025-02-07</td><td>נמרוד</td><td>איליה</td></tr>
+                <tr><td>2025-02-14</td><td>יובל</td><td>איגור</td></tr>
+                <tr><td>2025-02-21</td><td>דני</td><td>סלבה</td></tr>
+                <tr><td>2025-02-28</td><td>נמרוד</td><td>איליה</td></tr>
+                <tr><td>2025-03-07</td><td>יובל</td><td>איגור</td></tr>
+                <tr><td>2025-03-14</td><td>דני</td><td>סלבה</td></tr>
+                <tr><td>2025-03-21</td><td>נמרוד</td><td>איליה</td></tr>
+                <tr><td>2025-03-28</td><td>יובל</td><td>איגור</td></tr>
+                <tr><td>2025-04-04</td><td>דני</td><td>סלבה</td></tr>
+                <tr><td>2025-04-11</td><td>נמרוד</td><td>איליה</td></tr>
+                <tr><td>2025-04-18</td><td>יובל</td><td>איגור</td></tr>
+                <tr><td>2025-04-25</td><td>דני</td><td>סלבה</td></tr>
+                <tr><td>2025-05-02</td><td>נמרוד</td><td>איליה</td></tr>
+                <tr><td>2025-05-09</td><td>יובל</td><td>איגור</td></tr>
+                <tr><td>2025-05-16</td><td>דני</td><td>סלבה</td></tr>
+                <tr><td>2025-05-23</td><td>נמרוד</td><td>איליה</td></tr>
+                <tr><td>2025-05-30</td><td>יובל</td><td>איגור</td></tr>
+                <tr><td>2025-06-06</td><td>דני</td><td>סלבה</td></tr>
+                <tr><td>2025-06-13</td><td>נמרוד</td><td>איליה</td></tr>
+                <tr><td>2025-06-20</td><td>יובל</td><td>איגור</td></tr>
+                <tr><td>2025-06-27</td><td>דני</td><td>סלבה</td></tr>
+                <tr><td>2025-07-04</td><td>נמרוד</td><td>איליה</td></tr>
+                <tr><td>2025-07-11</td><td>יובל</td><td>איגור</td></tr>
+                <tr><td>2025-07-18</td><td>דני</td><td>סלבה</td></tr>
+                <tr><td>2025-07-25</td><td>נמרוד</td><td>איליה</td></tr>
+                <tr><td>2025-08-01</td><td>יובל</td><td>איגור</td></tr>
+                <tr><td>2025-08-08</td><td>דני</td><td>סלבה</td></tr>
+                <tr><td>2025-08-15</td><td>נמרוד</td><td>איליה</td></tr>
+                <tr><td>2025-08-22</td><td>יובל</td><td>איגור</td></tr>
+                <tr><td>2025-08-29</td><td>דני</td><td>סלבה</td></tr>
+                <tr><td>2025-09-05</td><td>נמרוד</td><td>איליה</td></tr>
+                <tr><td>2025-09-12</td><td>יובל</td><td>איגור</td></tr>
+                <tr><td>2025-09-19</td><td>דני</td><td>סלבה</td></tr>
+                <tr><td>2025-09-26</td><td>נמרוד</td><td>איליה</td></tr>
+                <tr><td>2025-10-03</td><td>יובל</td><td>איגור</td></tr>
+                <tr><td>2025-10-10</td><td>דני</td><td>סלבה</td></tr>
+                <tr><td>2025-10-17</td><td>נמרוד</td><td>איליה</td></tr>
+                <tr><td>2025-10-24</td><td>יובל</td><td>איגור</td></tr>
+                <tr><td>2025-10-31</td><td>דני</td><td>סלבה</td></tr>
+                <tr><td>2025-11-07</td><td>נמרוד</td><td>איליה</td></tr>
+                <tr><td>2025-11-14</td><td>יובל</td><td>איגור</td></tr>
+                <tr><td>2025-11-21</td><td>דני</td><td>סלבה</td></tr>
+                <tr><td>2025-11-28</td><td>נמרוד</td><td>איליה</td></tr>
+                <tr><td>2025-12-05</td><td>יובל</td><td>איגור</td></tr>
+                <tr><td>2025-12-12</td><td>דני</td><td>סלבה</td></tr>
+                <tr><td>2025-12-19</td><td>נמרוד</td><td>איליה</td></tr>
+                <tr><td>2025-12-26</td><td>יובל</td><td>איגור</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <h2>Distribution of Shifts</h2>
+<canvas id="shiftChart" width="400" height="200">
+</canvas>
 
-        <label for="checkDate">Дата проверки:</label>
-        <input type="date" id="checkDate" name="check_date" required><br><br>
+    <div class="overlay" id="overlay" onclick="toggleModal()"></div>
 
-        <label for="inspectionResults">Результаты проверки:</label>
-        <textarea id="inspectionResults" name="inspection_results" rows="4" cols="50" required></textarea><br><br>
-
-        <label for="comments">Комментарии:</label>
-        <textarea id="comments" name="comments" rows="2" cols="50"></textarea><br><br>
-
-        <button type="submit">Отправить</button>
-    </form>
-
-    <!-- Подключение EmailJS -->
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        (function() {
-            emailjs.init("YOUR_PUBLIC_KEY"); // Замените на ваш Public Key
-        })();
-
-        document.getElementById("truckCheckForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            const formData = {
-                driver_name: document.getElementById("driverName").value,
-                check_date: document.getElementById("checkDate").value,
-                inspection_results: document.getElementById("inspectionResults").value,
-                comments: document.getElementById("comments").value
-            };
-
-            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData)
-                .then(function(response) {
-                    alert("Бланк успешно отправлен!");
-                    console.log("SUCCESS!", response.status, response.text);
-                }, function(error) {
-                    alert("Ошибка при отправке. Попробуйте снова.");
-                    console.log("FAILED...", error);
-                });
-        });
-    </script>
+    <div class="modal" id="swapModal">
+        <h2>Swap Drivers</h2>
+        <div class="form-group">
+            <label for="dateInput">Start Date:</label>
+            <select id="dateInput"></select>
+        </div>
+        <div class="form-group">
+            <label for="driver1Input">Change from:</label>
+            <select id="driver1Input"></select>
+        </div>
+        <div class="form-group">
+            <label for="driver2Input">Change to:</label>
+            <select id="driver2Input"></select>
+        </div>
+        <button onclick="handleSwap()">Swap</button>
+        <button onclick="toggleModal()">Close</button>
+    </div>
+    <div class="modal" id="shiftCounterModal">
+    <h2>Shift Counter</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody id="shiftCounterTableBody">
+            <!-- Сюда будут добавляться строки -->
+        </tbody>
+    </table>
+    <button onclick="toggleShiftCounter()">Close</button>
+</div>
+<div class="overlay" id="shiftCounterOverlay" onclick="toggleShiftCou
+nter()">
+</div>
+<h2>History of Changes</h2>
+<div id="changeHistory" style="max-height: 200px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;">
+    <ul id="historyList" style="list-style: none; padding: 0; margin: 0;">
+        <!-- Здесь будут отображаться изменения -->
+    </ul>
+</div>
 </body>
+<script>
+let changeHistory = JSON.parse(localStorage.getItem('changeHistory')) || [];
+
+// Функция для добавления записи в историю изменений
+function addToChangeHistory(action) {
+    const timestamp = new Date().toLocaleString();
+    const entry = `${timestamp} - ${action}`;
+    changeHistory.push(entry);
+    localStorage.setItem('changeHistory', JSON.stringify(changeHistory));
+    displayChangeHistory();
+}
+
+// Функция для отображения истории изменений
+function displayChangeHistory() {
+    const historyList = document.getElementById('historyList');
+    historyList.innerHTML = '';
+    changeHistory.forEach(entry => {
+        const listItem = document.createElement('li');
+        listItem.textContent = entry;
+        historyList.appendChild(listItem);
+    });
+}
+
+// Обновляем историю изменений при загрузке страницы
+document.addEventListener('DOMContentLoaded', displayChangeHistory);
+
+// Обновляем функцию для swap с учетом истории
+function swapDrivers(date, driver1, driver2) {
+    const rows = document.querySelectorAll("tbody tr");
+    let startSwapping = false;
+
+    rows.forEach(row => {
+        const cells = row.querySelectorAll("td");
+        const rowDate = cells[0].textContent;
+
+        if (rowDate === date) {
+            startSwapping = true;
+        }
+
+        if (startSwapping) {
+            cells.forEach(cell => {
+                if (cell.textContent === driver1) {
+                    cell.textContent = driver2;
+                } else if (cell.textContent === driver2) {
+                    cell.textContent = driver1;
+                }
+            });
+        }
+    });
+
+    addToChangeHistory(`Swapped ${driver1} with ${driver2} starting from ${date}`);
+    toggleModal();
+}
+
+function handleSwap() {
+    const date = document.getElementById("dateInput").value;
+    const driver1 = document.getElementById("driver1Input").value;
+    const driver2 = document.getElementById("driver2Input").value;
+
+    if (!date || !driver1 || !driver2) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    const isConfirmed = confirm("Are you sure you want to make these changes?");
+    if (isConfirmed) {
+        swapDrivers(date, driver1, driver2);
+        alert("The changes have been successfully made!");
+    } else {
+        alert("Changes were not applied.");
+    }
+}
+</script>
+<script>
+function saveToLocalStorage() {
+    const tableData = [];
+    document.querySelectorAll("#mainTable tbody tr").forEach(row => {
+        tableData.push({
+            date: row.cells[0].textContent,
+            driver1: row.cells[1].textContent,
+            driver2: row.cells[2].textContent
+        });
+    });
+    localStorage.setItem("driverSchedule", JSON.stringify(tableData));
+}
+
+function loadFromLocalStorage() {
+    const tableData = JSON.parse(localStorage.getItem("driverSchedule"));
+    if (tableData) {
+        const tbody = document.querySelector("#mainTable tbody");
+        tbody.innerHTML = ""; // Очистка текущего содержимого
+        tableData.forEach(rowData => {
+            const row = `<tr>
+                <td>${rowData.date}</td>
+                <td>${rowData.driver1}</td>
+                <td>${rowData.driver2}</td>
+            </tr>`;
+            tbody.insertAdjacentHTML("beforeend", row);
+        });
+    }
+}
+
+// Загрузка данных при открытии страницы
+document.addEventListener('DOMContentLoaded', loadFromLocalStorage);
+
+// Автоматическое сохранение при изменениях в таблице
+window.addEventListener('beforeunload', saveToLocalStorage);
+</script>
+<!-- Подключение библиотеки Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Скрипт для создания диаграммы -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    renderShiftChart();
+});
+
+function renderShiftChart() {
+    // Сбор данных из таблицы
+    const rows = document.querySelectorAll("#mainTable tbody tr");
+    const shiftCounts = {};
+
+    rows.forEach(row => {
+        const driver1 = row.cells[1]?.textContent.trim();
+        const driver2 = row.cells[2]?.textContent.trim();
+
+        if (driver1) shiftCounts[driver1] = (shiftCounts[driver1] || 0) + 1;
+        if (driver2) shiftCounts[driver2] = (shiftCounts[driver2] || 0) + 1;
+    });
+
+    const labels = Object.keys(shiftCounts);
+    const data = Object.values(shiftCounts);
+
+    // Создание диаграммы
+    const ctx = document.getElementById('shiftChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Количество смен',
+                data: data,
+                backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+</script>
 </html>
+</html>
+</html>
+</html>
+ml>
