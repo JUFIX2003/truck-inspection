@@ -313,7 +313,6 @@ function updateShiftCounter() {
     <button onclick="toggleShiftCounter()">מונה ימי שישי</button>
     <a href="inspection-form.html">
         <button>בדיקת משאיות חודשית</button>
-       <button onclick="subscribeToNotifications()">Активировать уведомления</button>
     </a>
     <button onclick="window.location.href='ncg.html'">NCG</button>
 </div>
@@ -452,41 +451,6 @@ nter()">
         }
     }
 </script>
-// Проверка поддержки браузером уведомлений
-if ('Notification' in window && 'serviceWorker' in navigator) {
-    console.log("Уведомления и Service Worker поддерживаются.");
-
-    // Регистрация Service Worker
-    navigator.serviceWorker.register('sw.js').then(registration => {
-        console.log('Service Worker зарегистрирован:', registration);
-    }).catch(error => {
-        console.error('Ошибка регистрации Service Worker:', error);
-    });
-}
-
-// Функция подписки на уведомления
-function subscribeToNotifications() {
-    // Запрос разрешения у пользователя
-    Notification.requestPermission().then(permission => {
-        if (permission === 'granted') {
-            console.log('Разрешение получено.');
-            showNotification('Уведомления активированы!', 'Теперь вы будете получать уведомления.');
-        } else {
-            console.warn('Разрешение отклонено.');
-        }
-    });
-}
-
-// Функция для отправки уведомлений
-function showNotification(title, message) {
-    navigator.serviceWorker.ready.then(registration => {
-        registration.showNotification(title, {
-            body: message,
-            icon: 'icon.png', // Иконка для уведомлений
-            vibrate: [200, 100, 200],
-        });
-    });
-}
 </body>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
