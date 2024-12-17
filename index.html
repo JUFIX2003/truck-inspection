@@ -6,208 +6,135 @@
     <title>Weekly Drivers Schedule 2025</title>
     <style>
         <style>
-    /* Существующий стиль */
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
-
-    th, td {
-        border: 1px solid #ccc;
-        padding: 12px;
-        text-align: center;
-    }
-
-    /* Новый адаптивный стиль */
-    @media (max-width: 768px) {
-        body {
-            font-size: 14px; /* Уменьшить размер текста для мобильных устройств */
-        }
-
-        .container {
-            padding: 10px; /* Уменьшить отступы контейнера */
-        }
-
-        table {
-            font-size: 12px; /* Уменьшить размер текста в таблице */
-        }
-
-        th, td {
-            padding: 8px; /* Уменьшить отступы в ячейках таблицы */
-        }
-
-        .table-container {
-            overflow-x: auto; /* Позволить горизонтальную прокрутку на узких экранах */
-        }
-
-        .modal {
-            width: 90%; /* Увеличить доступную ширину меню Swap Driver */
-            max-width: none; /* Убрать ограничение ширины */
-            padding: 15px; /* Уменьшить отступы */
-        }
-
-        select, button {
-            width: 100%; /* Полная ширина элементов формы */
-            font-size: 14px; /* Уменьшить размер текста в формах */
-        }
-
-        h1 {
-            font-size: 20px; /* Уменьшить размер заголовка */
-        }
-    }
-        td:nth-child(2), td:nth-child(3) {
-    font-weight: 700; /* Ещё более жирный шрифт */
-    color: #000; /* Сделать текст насыщенным чёрным */
-}I
-        td:first-child {
-    font-weight: 600; /* Немного жирнее */
-    color: #333; /* Темнее цвет */
+    /* Общий стиль для страницы */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
 }
-        tr:nth-child(even) {
-    background-color: #f2f2f2; /* Светло-серый цвет для четных строк */
+
+/* Заголовок */
+h1 {
+    text-align: center;
+    color: #005f73;
+    margin: 20px 0;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* Контейнер для таблицы и элементов */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Таблица */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #0a9396;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+tr:nth-child(even) {
+    background-color: #f4f4f4;
 }
 
 tr:nth-child(odd) {
-    background-color: #e6e6e6; /* Серый цвет для нечетных строк */
+    background-color: #e9ecef;
 }
-        table {
+
+tr:hover {
+    background-color: #d3f8f2;
+}
+
+/* Кнопки */
+button {
+    width: 200px;
+    height: 50px;
+    margin: 10px;
+    background-color: #005f73;
+    color: #ffffff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #0a9396;
+    transform: scale(1.05);
+}
+
+/* Модальные окна */
+.modal, .overlay {
+    display: none;
+}
+
+.modal.active, .overlay.active {
+    display: block;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
 }
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #add8e6;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8p x;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: center;
-        }
-        th {
-            background-color: #add8e6I;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        select, button {
-            padding: 10px;
-            margin-top: 5px;
-            font-size: 16px;
-            border: 1px so lid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            background-color: #005f73;
-            color: #fff;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
-        .modal.active {
-            display: block;
-        }
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            display: none;
-            z-index: 999;
-        }
-        .overlay.active {
-            display: block;
-        }
-        .
-    /* Существующий стиль */
+
+/* Адаптивный стиль */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
     table {
+        font-size: 12px;
+    }
+
+    button {
         width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
+        margin: 5px 0;
     }
-
-    th, td {
-        border: 1px solid #ccc;
-        padding: 12px;
-        text-align: center;
-    }
-
-    /* Новый адаптивный стиль */
-    @media (max-width: 768px) {
-        body {
-            font-size: 14px; /* Уменьшить размер текста для мобильных устройств */
-        }
-
-        .container {
-            padding: 10px; /* Уменьшить отступы контейнера */
-        }
-
-        table {
-            font-size: 12px; /* Уменьшить размер текста в таблице */
-        }
-
-        th, td {
-            padding: 8px; /* Уменьшить отступы в ячейках таблицы */
-        }
-
-        .table-container {
-            overflow-x: auto; /* Позволить горизонтальную прокрутку на узких экранах */
-        }
-
-        .modal {
-            width: 90%; /* Увеличить доступную ширину меню Swap Driver */
-            max-width: none; /* Убрать ограничение ширины */
-            padding: 15px; /* Уменьшить отступы */
-        }
-
-        select, button {
-            width: 100%; /* Полная ширина элементов формы */
-            font-size: 14px; /* Уменьшить размер текста в формах */
-        }
-
-        h1 {
-            font-size: 20px; /* Уменьшить размер заголовка */
-        }
-    }
+}
 </style>
     </style>
     <script>
@@ -369,8 +296,7 @@ function updateShiftCounter() {
             window.print();
             document.body.innerHTML = originalContents;
         }
-    </script>
-        
+    </script>    
 </head>
 <body>
     <h1>עמוד ראשי</h1>
@@ -380,14 +306,16 @@ function updateShiftCounter() {
     <div class="container">        
         <h1>רשימת הנהגים לימי שישי 2025</h1>
 
-        <button onclick="checkPassword()">החלפת נהגים</button> 
-        
-        <button onclick="exportToExcel()">Export to Excel</button>
-        <button onclick="printTable()">Print</button>
-        <button onclick="toggleShiftCounter()">מונה ימי שישי</button>
-        <a href="inspection-form.html">
-    <button>בדיקת משאיות חודשית</button>
-</a>
+       <div class="button-container">
+    <button onclick="checkPassword()">החלפת נהגים</button>
+    <button onclick="exportToExcel()">Export to Excel</button>
+    <button onclick="printTable()">Print</button>
+    <button onclick="toggleShiftCounter()">מונה ימי שישי</button>
+    <a href="inspection-form.html">
+        <button>בדיקת משאיות חודשית</button>
+    </a>
+    <button onclick="window.location.href='ncg.html'">NCG</button>
+</div>
 <div class="table-container">
         <table id="mainTable">
           ' </div>
