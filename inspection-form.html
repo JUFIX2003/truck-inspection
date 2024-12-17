@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>בדיקת משאיות</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            direction: rtl;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #005f73;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            font-size: 1.5em;
+        }
+        form {
+            background-color: #ffffff;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 500px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="checkbox"] {
+            width: auto;
+            margin-left: 10px;
+        }
+        button {
+            background-color: #005f73;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #0a9396;
+        }
+        .warning {
+            background-color: #ffcccc; /* Красный фон */
+            border-color: #ff0000;
+        }
+        .section-title {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+            border-bottom: 2px solid #005f73;
+            padding-bottom: 5px;
+        }
+        .checkbox-group label {
+            display: inline-block;
+            margin: 5px 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>בדיקת חודשית למשאיות</header>
+
+    <form id="truckCheckForm">
+        <!-- בחירת מספר משאית -->
+        <label for="truckNumber">מספר משאית:</label>
+        <select id="truckNumber" name="truckNumber" required>
+            <option value="">בחר מספר משאית</option>
+            <option value="360-27-001">360-27-001</option>
+            <option value="360-27-101">360-27-101</option>
+            <option value="483-44-001">483-44-001</option>
+            <option value="893-67-002">893-67-002</option>
+            <option value="893-67-102">893-67-102</option>
+            <option value="893-78-502">893-78-502</option>
+            <option value="893-75-802">893-75-802</option>
+        </select>
+
+        <!-- שם העובד -->
+        <label for="workerName">שם העובד:</label>
+        <input type="text" id="workerName" name="workerName" placeholder="הכנס את שמך" required>
+
+        <!-- קילומטראז' -->
+        <label for="mileage">קילומטראז':</label>
+        <input type="number" id="mileage" name="mileage" placeholder="הכנס את הקילומטראז'" required>
+
+        <!-- תאריכים שונים -->
+        <label for="techDate">תאריך טסט:</label>
+        <input type="date" id="techDate" name="techDate" required>
+
+        <label for="insuranceDate">תאריך ביטוח:</label>
+        <input type="date" id="insuranceDate" name="insuranceDate" required>
+
+        <label for="rampDate">תאריך רמפה הידראולית:</label>
+        <input type="date" id="rampDate" name="rampDate" required>
+
+        <!-- בדיקות נוספות -->
+        <div class="section-title">בדיקות נוספות:</div>
+        <div class="checkbox-group">
+            <input type="checkbox" id="washCheck" name="washCheck">
+            <label for="washCheck">שטיפה</label>
+
+            <input type="checkbox" id="lightsCheck" name="lightsCheck">
+            <label for="lightsCheck">תאורה</label>
+
+            <input type="checkbox" id="tireCheck" name="tireCheck">
+            <label for="tireCheck">צמיגים</label>
+        </div>
+
+        <!-- כפתור שליחה -->
+        <button type="submit">שלח טופס</button>
+    </form>
+
+    <script>
+        document.getElementById('truckCheckForm').addEventListener('input', function () {
+            const currentDate = new Date();
+            const warningDays = 45;
+
+            // Функция для проверки дат
+            function checkDate(inputId) {
+                const input = document.getElementById(inputId);
+                if (input.value) {
+                    const selectedDate = new Date(input.value);
+                    const diffTime = (selectedDate - currentDate) / (1000 * 60 * 60 * 24); // Разница в днях
+
+                    if (diffTime <= warningDays) {
+                        input.classList.add('warning');
+                    } else {
+                        input.classList.remove('warning');
+                    }
+                }
+            }
+
+            // Проверка всех дат
+            checkDate('techDate');
+            checkDate('insuranceDate');
+            checkDate('rampDate');
+
+            // Проверка километража
+            const mileageInput = document.getElementById('mileage');
+            const mileage = parseInt(mileageInput.value, 10);
+
+            if (mileage >= 0 && mileage <= 300000) {
+                const remainder = mileage % 20000;
+                if (remainder >= 18000 || remainder === 0) {
+                    mileageInput.classList.add('warning');
+                } else {
+                    mileageInput.classList.remove('warning');
+                }
+            } else {
+                mileageInput.classList.remove('warning');
+            }
+        });
+    </script>
+</body>
+</html>
