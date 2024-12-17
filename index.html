@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truck Inspection Form</title>
+</head>
+<body>
+    <h1>Месячная проверка грузовиков</h1>
+    <p>Пожалуйста, заполните форму ниже:</p>
+
+    <form id="truckCheckForm">
+        <label for="driverName">Имя водителя:</label>
+        <input type="text" id="driverName" name="driver_name" required><br><br>
+
+        <label for="checkDate">Дата проверки:</label>
+        <input type="date" id="checkDate" name="check_date" required><br><br>
+
+        <label for="inspectionResults">Результаты проверки:</label>
+        <textarea id="inspectionResults" name="inspection_results" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="comments">Комментарии:</label>
+        <textarea id="comments" name="comments" rows="2" cols="50"></textarea><br><br>
+
+        <button type="submit">Отправить</button>
+    </form>
+
+    <!-- Подключение EmailJS -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("YOUR_PUBLIC_KEY"); // Замените на ваш Public Key
+        })();
+
+        document.getElementById("truckCheckForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const formData = {
+                driver_name: document.getElementById("driverName").value,
+                check_date: document.getElementById("checkDate").value,
+                inspection_results: document.getElementById("inspectionResults").value,
+                comments: document.getElementById("comments").value
+            };
+
+            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData)
+                .then(function(response) {
+                    alert("Бланк успешно отправлен!");
+                    console.log("SUCCESS!", response.status, response.text);
+                }, function(error) {
+                    alert("Ошибка при отправке. Попробуйте снова.");
+                    console.log("FAILED...", error);
+                });
+        });
+    </script>
+</body>
+</html>
