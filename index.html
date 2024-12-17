@@ -211,6 +211,7 @@ tr:nth-child(odd) {
     </style>
     <script>
         
+        
       function toggleShiftCounter() {
     const modal = document.getElementById('shiftCounterModal');
     const overlay = document.getElementById('shiftCounterOverlay');
@@ -380,7 +381,8 @@ function updateShiftCounter() {
     <div class="container">
         <h1>Weekly Drivers Schedule 2025</h1>
 
-        <button onclick="toggleModal()">Open Driver Swap</button>
+        <button onclick="checkPassword()">Open Driver Swap</button> 
+        
         <button onclick="exportToExcel()">Export to Excel</button>
         <button onclick="printTable()">Print</button>
         <button onclick="toggleShiftCounter()">Shift Counter</button>
@@ -495,9 +497,53 @@ nter()">
 <div id="changeHistory" style="max-height: 200px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;">
     <ul id="historyList" style="list-style: none; padding: 0; margin: 0;">
         <!-- Здесь будут отображаться изменения -->
-    </ul>
+    </ul>  
 </div>
+<script>
+    function checkPassword() {
+        const password = prompt("Введите пароль для доступа:");
+
+        if (password === "Punch2003") {
+            alert("Доступ разрешён!");
+            toggleModal(); // Открываем модальное окно
+        } else {
+            alert("Неправильный пароль. Доступ запрещён.");
+        }
+    }
+
+    function toggleModal() {
+        const modal = document.getElementById('swapModal');
+        const overlay = document.getElementById('overlay');
+
+        if (modal && overlay) {
+            modal.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+    }
+</script>
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Находим кнопку Open Swap Drivers
+        const openSwapButton = document.getElementById("openSwapDrivers");
+
+        if (openSwapButton) {
+            openSwapButton.addEventListener("click", function(event) {
+                event.preventDefault(); // Останавливаем стандартное действие кнопки
+
+                const password = prompt("Введите пароль для доступа:");
+
+                if (password === "Punch2003") {
+                    alert("Доступ разрешён!");
+                    // Здесь можно добавить действие, например, открытие swap меню
+                    window.location.href = "swap-drivers.html"; // Переход на страницу, если нужно
+                } else {
+                    alert("Неправильный пароль. Доступ запрещён.");
+                }
+            });
+        }
+    });
+</script>
 <script>
 let changeHistory = JSON.parse(localStorage.getItem('changeHistory')) || [];
 
@@ -571,6 +617,7 @@ function handleSwap() {
     }
 }
 </script>
+
 <script>
 function saveToLocalStorage() {
     const tableData = [];
@@ -660,4 +707,3 @@ function renderShiftChart() {
 </html>
 </html>
 </html>
-ml>
