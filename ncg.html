@@ -3,177 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Список товаров</title>
-    <style>
-        /* Общий стиль страницы */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        h1 {
-            color: #005f73;
-            margin: 20px;
-            font-size: 2em;
-        }
-
-        /* Контейнер для списка */
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            background-color: #ffffff;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Список и строки */
-        .item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .divider {
-            height: 2px;
-            background-color: #0a9396;
-            margin: 10px 0;
-        }
-
-        label {
-            font-size: 1.1em;
-            color: #333;
-        }
-
-        input[type="number"] {
-            width: 80px;
-            padding: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            text-align: center;
-            font-size: 1em;
-        }
-
-        /* Кнопка отправки */
-        button {
-            background-color: #005f73;
-            color: white;
-            padding: 10px 20px;
-            font-size: 1.1em;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #0a9396;
-            transform: scale(1.05);
-        }
-    </style>
+    <title>NCG: Ввод количества</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>רשימת מוצרים</h1>
+    <h1>NCG: Ввод количества по товарам</h1>
 
-    <div class="container">
-        <!-- Первая секция -->
-        <div class="item">
-            <label>HA-02</label>
-            <input type="number" min="0" placeholder="0">
-        </div>
-        <div class="item">
-            <label>HA-21</label>
-            <input type="number" min="0" placeholder="0">
-        </div>
-        <div class="item">
-            <label>HA-26</label>
-            <input type="number" min="0" placeholder="0">
-        </div>
-        <div class="item">
-            <label>פרפר קתן</label>
-            <input type="number" min="0" placeholder="0">
-        </div>
-        <div class="item">
-            <label>Baby</label>
-            <input type="number" min="0" placeholder="0">
-        </div>
-        <div class="item">
-            <label>Scarf big</label>
-            <input type="number" min="0" placeholder="0">
-        </div>
-        <div class="item">
-            <label>Scarf small</label>
-            <input type="number" min="0" placeholder="0">
-        </div>
-        <div class="divider"></div>
-
-        <!-- Вторая секция -->
-        <div class="item">
-            <label>שקיות S</label>
-            <input type="number" min="0" placeholder="0">
-        </div>
-        <div class="item">
-            <label>שקיות M</label>
-            <input type="number" min="0" placeholder="0">
-        </div>
-        <div class="item">
-            <label>שקיות L</label>
-            <input type="number" min="0" placeholder="0">
-        </div>
-        <div class="divider"></div>
-
-        <!-- Третья секция -->
-        <div class="item">
-            <label>מערזי מתנה S</label>
-            <input type="number" min="0" placeholder="0">
-        </div>
-        <div class="item">
-            <label>מערזי מתנה M</label>
-            <input type="number" min="0" placeholder="0">
-        </div>
-        <div class="item">
-            <label>מערזי מתנה L</label>
-            <input type="number" min="0" placeholder="0">
-        </div>
-        <div class="divider"></div>
-
-        <!-- Четвёртая секция -->
-        <div class="item">
-            <label>נייר משי</label>
-            <input type="number" min="0" placeholder="0">
-        </div>
-        <div class="item">
-            <label>צלופן</label>
-            <input type="number" min="0" placeholder="0">
-        </div>
-        <div class="item">
-            <label>תגיות Home</label>
-            <input type="number" min="0" placeholder="0">
-        </div>
-        <div class="divider"></div>
-
-        <!-- Пятая секция -->
-        <div class="item">
-            <label>סליל קופה</label>
-            <input type="number" min="0" placeholder="0">
-        </div>
-        <div class="item">
-            <label>שקיות מחזור</label>
-            <input type="number" min="0" placeholder="0">
-        </div>
-        <div class="item">
-            <label>שרינק</label>
-            <input type="number" min="0" placeholder="0">
-        </div>
+    <!-- Поле для выбора даты -->
+    <div class="date-container">
+        <label for="inspectionDate">Дата заполнения:</label>
+        <input type="date" id="inspectionDate">
     </div>
 
-    <button type="submit">שלח</button>
+    <div class="table-container">
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th>Наименование</th>
+                    <!-- Заголовки столбцов -->
+                    <th>IL001</th>
+                    <th>IL002</th>
+                    <th>IL003</th>
+                    <th>IL004</th>
+                    <th>IL005</th>
+                    <th>IL006</th>
+                    <th>IL007</th>
+                    <th>IL008</th>
+                    <th>IL009</th>
+                    <th>IL010</th>
+                    <th>IL011</th>
+                    <th>IL012</th>
+                    <th>IL013</th>
+                    <th>IL014</th>
+                    <th>IL015</th>
+                    <th>IL016</th>
+                    <th>IL017</th>
+                    <th>IL018</th>
+                    <th>IL019</th>
+                    <th>IL020</th>
+                    <th>IL021</th>
+                    <th>IL022</th>
+                    <th>IL023</th>
+                    <th>IL024</th>
+                    <th>IL025</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Данные таблицы добавляются через JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <button onclick="submitData()">Отправить данные</button>
+    <script src="script.js" defer></script>
 </body>
 </html>
