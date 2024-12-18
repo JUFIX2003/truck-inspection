@@ -1,0 +1,93 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 20px;
+    color: #005f73;
+    font-size: 2em;
+}
+
+.date-container {
+    margin: 20px;
+    font-size: 1.2em;
+}
+
+.date-container input[type="date"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.table-container {
+    width: 90%;
+    margin: 20px auto;
+    overflow-x: auto; /* Горизонтальная прокрутка */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #0a9396;
+    color: white;
+    font-size: 1em;
+}
+
+/* Фиксация первого столбца */
+td:first-child, th:first-child {
+    position: sticky;
+    left: 0;
+    background-color: white; /* Фон фиксированного столбца */
+    color: black;
+    z-index: 1;
+}
+
+/* Чередование цветов только для столбцов IL001 - IL025 */
+td:nth-child(n+2):nth-child(odd) input {
+    background-color: #f9f9f9;
+}
+
+td:nth-child(n+2):nth-child(even) input {
+    background-color: #e0e0e0;
+}
+
+input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1em;
+}
+
+button {
+    background-color: #005f73;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #0a9396;
+}
