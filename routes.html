@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניהול מסלולים</title>
+    <link rel="stylesheet" href="routes.css">
+</head>
+<body>
+
+    <h1>ניהול מסלולים - <span id="routeDate"></span></h1>
+    
+    <!-- Кнопка редактирования -->
+    <button id="editRouteButton">ערוך מסלול</button>
+
+    <!-- Кнопка очистки всех таблиц -->
+    <button id="clearAllButton">🗑 נקה הכל</button>
+
+    <!-- Контейнер для всех таблиц (по сменам) -->
+    <div id="routesContainer"></div>
+
+    <!-- Всплывающее меню (изначально скрыто) -->
+    <div id="editMenu" style="display: none;">
+        <div class="menu-content">
+            <h2>עריכת מסלול</h2>
+
+            <!-- Выбор даты и смены -->
+            <label for="routeDate">תאריך מסלול:</label>
+            <input type="date" id="routeDate">
+            <label for="routeShift">שעות עבודה:</label>
+            <select id="routeShift">
+                <option value="morning">בוקר (Утро)</option>
+                <option value="afternoon">אחר הצהריים (Обед)</option>
+                <option value="friday">שישי (Пятница)</option>
+            </select>
+
+            <!-- Кнопка "Добавить маршрут" -->
+            <button id="addRouteButton">➕ הוסף מסלול</button>
+
+            <!-- Таблица маршрутов -->
+            <table id="routesTable">
+                <thead>
+                    <tr>
+                        <th>נהג</th> <!-- Водитель -->
+                        <th>מסלול</th> <!-- Маршрут -->
+                        <th>משימות נוספות</th> <!-- Подменю (дополнительные задачи) -->
+                        <th>רכב</th> <!-- Грузовик -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Новые маршруты добавляются сюда -->
+                </tbody>
+            </table>
+
+            <!-- Подменю (дополнительные задачи) -->
+            <div id="submenu" style="display: none;">
+                <h3>משימות נוספות</h3>
+                <textarea id="taskInput" placeholder="הזן משימות נוספות"></textarea>
+                <button id="closeSubmenuButton">סגור</button>
+            </div>
+
+            <!-- Кнопки управления -->
+            <button id="saveRoutesButton">שמור שינויים</button>
+            <button id="clearRoutesButton">נקה הכל</button>
+            <button id="closeEditorButton">סגור</button>
+        </div>
+    </div>
+
+    <script src="routes.js"></script>
+<!-- Подключение Firebase -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyBqpApGpmHOirvr51aOZ5wXEm8fT4XuE9A",
+        authDomain: "myapp-93bf6.firebaseapp.com",
+        databaseURL: "https://myapp-93bf6-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "myapp-93bf6",
+        storageBucket: "myapp-93bf6.firebasestorage.app",
+        messagingSenderId: "150397918393",
+        appId: "1:150397918393:web:2d109048247d86530d0f68",
+        measurementId: "G-JDB7BEWHBT"
+    };
+
+    // Инициализация Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+</script>
+</body>
+</html>

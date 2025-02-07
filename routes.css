@@ -1,0 +1,210 @@
+/* 📌 Общий стиль (фон на всю страницу) */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(to bottom, #f8f9fa, #e9ecef); /* Серо-белый фон */
+    text-align: center;
+    direction: rtl;
+}
+
+/* 🎯 Заголовок */
+h1 {
+    font-size: 26px; /* Уменьшенный размер */
+    font-weight: bold;
+    color: #343a40;
+    margin-bottom: 15px;
+}
+
+/* 🎯 Компактные таблицы */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 12px; /* Уменьшенный шрифт */
+}
+
+th, td {
+    border: 1px solid #dee2e6;
+    padding: 8px; /* Уменьшенные отступы */
+    text-align: center;
+}
+
+th {
+    background: linear-gradient(45deg, #343a40, #495057);
+    color: white;
+    font-size: 14px; /* Читаемый, но компактный */
+}
+
+/* 🎯 Компактное меню редактора */
+#editMenu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 🎯 Внутреннее содержимое редактора */
+.menu-content {
+    background: white;
+    padding: 15px; /* Уменьшенные отступы */
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 80%;
+    max-width: 400px; /* Сделал компактнее */
+}
+
+/* 🎯 Поля ввода и селекты (меньше размер) */
+input, select {
+    width: 100%;
+    padding: 8px;
+    font-size: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+
+/* 🎯 Компактные кнопки */
+button {
+    padding: 8px 15px;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin: 3px;
+}
+
+/* 🟢 Кнопки: "Редактировать", "Добавить маршрут" */
+#editRouteButton, #addRouteButton {
+    background: linear-gradient(45deg, #28a745, #218838);
+    color: white;
+}
+
+#editRouteButton:hover, #addRouteButton:hover {
+    background: linear-gradient(45deg, #218838, #1e7e34);
+}
+
+/* 🔵 Кнопка "Сохранить" */
+#saveRoutesButton {
+    background: linear-gradient(45deg, #007BFF, #0056b3);
+    color: white;
+}
+
+#saveRoutesButton:hover {
+    background: linear-gradient(45deg, #0056b3, #004085);
+}
+
+/* 🟠 Кнопка "Очистить" */
+#clearRoutesButton {
+    background: linear-gradient(45deg, #fd7e14, #e8590c);
+    color: white;
+}
+
+#clearRoutesButton:hover {
+    background: linear-gradient(45deg, #e8590c, #d9480f);
+}
+
+/* 🔴 Кнопка "Закрыть" */
+#closeEditorButton {
+    background: linear-gradient(45deg, #dc3545, #c82333);
+    color: white;
+}
+
+#closeEditorButton:hover {
+    background: linear-gradient(45deg, #c82333, #a71d2a);
+}
+
+/* ⚫ Кнопка "Очистить всё" */
+#clearAllButton {
+    background: linear-gradient(45deg, #6c757d, #5a6268);
+    color: white;
+}
+
+#clearAllButton:hover {
+    background: linear-gradient(45deg, #5a6268, #495057);
+}
+
+/* 🎯 Компактное подменю */
+#submenu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    display: none;
+    text-align: center;
+    width: 80%;
+    max-width: 350px;
+}
+
+#submenu textarea {
+    width: 100%;
+    height: 70px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+}
+
+/* 🎯 Основная таблица маршрутов */
+#routesContainer {
+    margin-top: 10px;
+}
+
+#routesContainer table {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* 📱 Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    body {
+        padding: 5px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .menu-content {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    input, select {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+
+    #submenu {
+        width: 90%;
+    }
+}
